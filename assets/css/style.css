@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto Slab', serif;
+    background-image: url("../images/1200px-Seal_of_the_United_States_Department_of_Homeland_Security.svg.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
+
+header{
+	height: 130px;
+  background-color: #0D2235;
+  color: white;
+
+  
+}
+
+.mainContainer{
+  margin:60px 150px;
+
+}
+
+#trumpImg, #flagImg{
+  margin-top: 50px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.results{
+ margin-top: 80px;
+}
+
+h1{
+  text-align: center;
+  border: 2px solid #556471;
+  background-color: #ced2d6;
+  margin:60px 150px;
+}
+
+#logo1 {
+  height: 100px;
+  margin-left: 60px;
+}
+
+#banner{
+  height: 130px;
+  margin-left: 30px;
+}
+
+.questionBox{
+  border: 2px solid #556471;
+  margin: 20px 150px;
+  height: 400px;
+  background-color: #ced2d6;
+  text-align: center;
+}
+
+.question{
+  margin-top: 20px;
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 30px;  
+}
+
+.answers{
+  padding: 5px;
+}
+
+button{
+  margin-left: 47%;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  clear: both;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  background-color: #0D2235;
+  color: #ced2d6;
+  border-top: 8px solid #ced2d6;
+  margin-top: 20px;
+}
+
+/* sticky footer styling */
+
+/* https://css-tricks.com/snippets/css/sticky-footer/ */
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+  margin: 0 auto -105px;
+}
+
+footer,
+.push {
+  height: 80px;
+}
