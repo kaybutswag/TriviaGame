@@ -64,16 +64,22 @@ var quizList=[
 },"correctAnswer": "e"}
 ];
 	
-var questCount=0;
-var output = [];
+var questCount;
+var output;
 var answers;
-var answerCount=0;
-var userAnswer="";
-var cAnswer="";
-var count=25;
+var answerCount;
+var userAnswer;
+var cAnswer;
+var count;
 var intervalId;
 
 function getQuestions(questions){
+	questCount=0;
+	output=[];
+	answerCount=0;
+	userAnswer="";
+	cAnswer="";
+
 	
 	for(var i=0; i<questions.length; i++){
 		
@@ -100,6 +106,7 @@ function getQuestions(questions){
 	return output;
 }
 function showQuestion(questCount){
+	count=5;
 
 	$(".forQuestions").html(output[questCount]);
 	startTimer(count);
@@ -119,7 +126,7 @@ function victoryScreen(){
 	$(".subBtn").css("display","none");
 	$(".timerBox").css("display","none");
 	clearInterval(intervalId);
-	count=25;
+	count=5;
 	$(".forQuestions").html('<img id="correctImg" src="assets/images/green_card2.jpg"/>');
 	$(".forQuestions").append('<h3>Correct! A true patriot</h3>');
 	questCount++;
@@ -132,11 +139,15 @@ function victoryScreen(){
 
 
 function loserScreen(){
+	if(questCount>7){
+		finalScreen();
+	}
+	else{
 	$(".forQuestions").empty();
 	$(".subBtn").css("display","none");
 	$(".timerBox").css("display","none");
 	clearInterval(intervalId);
-	count=25;
+	count=5;
 	questCount++;
      $(".forQuestions").html('<h3>The correct answer was: '+cAnswer+'</h3><img id="failImg" src="assets/images/statue-of-liberty-tear-swscan04051.jpg"/>');
      $(".forQuestions").append("<h3>How Could You?</h3>");
@@ -145,22 +156,24 @@ function loserScreen(){
             }, 5000);
 	return count;
 }
+}
 
 function finalScreen(){
 	$(".forQuestions").empty();
-	$(".subBtn").remove();
-	$(".timerBox").remove();
+	$(".subBtn").css("display","none");
+	$(".timerBox").css("display","none");
 	var resultBox=$("<div>");
     resultBox.addClass("results");
     resultBox.html("<p> You got"+" "+answerCount+" "+"correct </p>"+"<p> Still not sure if we are acceepting new Citizens.</p>"+
     	"<button class='reset'>Try Again Anyway?</button>");
     $(".forQuestions").append(resultBox);
-    clearInterval(intervalId);
-    setTimeout(function() {
-       $(".questionBox").empty();
-            }, 5000);
+    myStopFunction();
+    
 }
 
+function myStopFunction() {
+    clearInterval(intervalId);
+}
 
 function startTimer(count){
   
@@ -178,6 +191,8 @@ function startTimer(count){
 
   }
 }
+
+
 
 
 $(document).ready(function() {
@@ -198,9 +213,10 @@ showQuestion(questCount);
 			loserScreen();
 		});
 
-	$(".reset").on("click", function() {
+	$(".forQuestions").on("click",".reset", function() {
 		getQuestions(quizList);
 		showQuestion(questCount);
+		console.log("hit");
 	});
 
 });     
