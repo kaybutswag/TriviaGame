@@ -25,10 +25,23 @@ header{
 
 }
 
-#trumpImg, #flagImg{
+#correctImg{
   margin-top: 50px;
   height: 200px;
   margin-bottom: 20px;
+}
+
+.forQuestions h3{
+  margin-top: 30px;
+}
+
+.forQuestions button{
+  text-align: center;
+}
+
+#failImg{
+  margin-top: 20px;
+  height: 200px;
 }
 
 .results{

@@ -120,7 +120,7 @@ function victoryScreen(){
 	$(".timerBox").css("display","none");
 	clearInterval(intervalId);
 	count=25;
-	$(".forQuestions").html('<img id="correctImg" src="assets/images/green_card2.jpg"/>');
+	$(".forQuestions").html('<img id="correctImg" src="assets/images/green_card2 (1).jpg"/>');
 	$(".forQuestions").append('<h3>Correct! A true patriot</h3>');
 	questCount++;
 	setTimeout(function() {
@@ -155,10 +155,6 @@ function finalScreen(){
     resultBox.html("<p> You got"+" "+answerCount+" "+"correct </p>"+"<p> Still not sure if we are acceepting new Citizens.</p>"+
     	"<button class='reset'>Try Again Anyway?</button>");
     $(".forQuestions").append(resultBox);
-    clearInterval(intervalId);
-    setTimeout(function() {
-       $(".questionBox").empty();
-            }, 5000);
 }
 
 
@@ -201,7 +197,7 @@ showQuestion(questCount);
 	$(".reset").on("click", function() {
 		getQuestions(quizList);
 		showQuestion(questCount);
-	}
+	});
 
 });     
 
