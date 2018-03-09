@@ -116,12 +116,11 @@ function showQuestion(questCount){
 }
 
 function victoryScreen(){
-	$(".forQuestions").empty();
 	$(".subBtn").css("display","none");
 	$(".timerBox").css("display","none");
 	clearInterval(intervalId);
 	count=25;
-	$(".forQuestions").html('<img id="flagImg" src="assets/images/USA-512.png" />');
+	$(".forQuestions").html('<img id="correctImg" src="assets/images/green_card2.jpg"/>');
 	$(".forQuestions").append('<h3>Correct! A true patriot</h3>');
 	questCount++;
 	setTimeout(function() {
@@ -139,8 +138,8 @@ function loserScreen(){
 	clearInterval(intervalId);
 	count=25;
 	questCount++;
-     $(".forQuestions").html('<img id="trumpImg" src="assets/images/170822235920-08-trump-phoenix-0822-full-169.jpg" />');
-     $(".forQuestions").append("<h3>Failure! Trump knew you didn't belong</h3>");
+     $(".forQuestions").html('<h3>The correct answer was: '+cAnswer+'</h3><img id="failImg" src="assets/images/statue-of-liberty-tear-swscan04051.jpg"/>');
+     $(".forQuestions").append("<h3>How Could You?</h3>");
 	setTimeout(function() {
        showQuestion(questCount);
             }, 5000);
@@ -153,7 +152,8 @@ function finalScreen(){
 	$(".timerBox").remove();
 	var resultBox=$("<div>");
     resultBox.addClass("results");
-    resultBox.html("<p> You got"+" "+answerCount+" "+"correct </p>"+"<p> Still not acceepting new Citizens. </p>")
+    resultBox.html("<p> You got"+" "+answerCount+" "+"correct </p>"+"<p> Still not sure if we are acceepting new Citizens.</p>"+
+    	"<button class='reset'>Try Again Anyway?</button>");
     $(".forQuestions").append(resultBox);
     clearInterval(intervalId);
     setTimeout(function() {
@@ -198,7 +198,11 @@ showQuestion(questCount);
 			loserScreen();
 		});
 
-	
+	$(".reset").on("click", function() {
+		getQuestions(quizList);
+		showQuestion(questCount);
+	}
+
 });     
 
 
