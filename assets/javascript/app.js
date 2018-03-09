@@ -155,6 +155,7 @@ function finalScreen(){
     resultBox.html("<p> You got"+" "+answerCount+" "+"correct </p>"+"<p> Still not sure if we are acceepting new Citizens.</p>"+
     	"<button class='reset'>Try Again Anyway?</button>");
     $(".forQuestions").append(resultBox);
+    clearInterval(intervalId);
 }
 
 
